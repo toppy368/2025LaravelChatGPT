@@ -22,7 +22,7 @@ class StoreShortUrlRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'original_url' => 'required|url|max:2048',
         ];
     }
 }
