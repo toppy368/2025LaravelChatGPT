@@ -12,4 +12,4 @@
 
     最後時間：1:11:17
 
-正要複製 UpdateShortUrlRequest時發現未產生此文件
+已操作完 StoreShortUrlRequest ，目前正要操作 UpdateShortUrlRequest 時，發現未產生此文件
