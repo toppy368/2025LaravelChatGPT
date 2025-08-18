@@ -11,6 +11,7 @@ class ShortUrl extends Model
 
     public static function generateCode(): string
     {
+        // substr 可限制 API 欄位 （'original_url'及'short_code'）可輸入範圍，這行已限制只能輸入數字0~9級大小寫英文字母
         return substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 10);
     }
 }
