@@ -2,14 +2,17 @@
 
 namespace Database\Factories;
 
+use App\Models\ShortUrl;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ShortUrl extends Model
+class ShortUrlFactory extends Factory
 {
-    protected $fillable = ['original_url', 'short_code'];
 
-    public static function generateCode(): string
+    public function definition(): array
     {
-        return substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 10);
+        return [
+            //
+        ];
     }
-}}
+
+}
