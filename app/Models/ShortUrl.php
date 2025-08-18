@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ShortUrl extends Model
 {
+    // TEST
     protected $fillable = ['original_url', 'short_code'];
 
     public static function generateCode(): string
