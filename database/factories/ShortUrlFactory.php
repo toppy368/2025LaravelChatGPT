@@ -11,7 +11,6 @@ class ShortUrl extends Model
 
     public static function generateCode(): string
     {
-        // TEST
         return substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 10);
     }
 }}
