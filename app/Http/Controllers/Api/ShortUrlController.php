@@ -3,47 +3,49 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\ShortUrl;
+use App\Http\Requests\StoreShortUrlRequest;
+use App\Http\Requests\UpdateShortUrlRequest;
+use App\Http\Resources\ShortUrlResource;
 
 class ShortUrlController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        return ShortUrlResource::collection (ShortUrl::all());
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store (StoreShortUrlRequest $request)
     {
-        //
+        $shortUrl = ShortUrl::create([
+            'original_url' => $request->original_url,
+            'short_code' => ShortUrl::generateCode(),
+        ]);
+
+        return new ShortUrlResource($shortUrl);
+    }
+    public function show($id)
+    {
+        $shortUrl = ShortUrl::find($id);
+
+        if (!$shortUrl) {
+            return response()->json(['error' => 'Short URL not found.'], 404);
+        }
+        return new ShortUrlResource($shortUrl);
+    }
+    public function update(UpdateShortUrlRequest $request, $id)
+    {
+        $shortUrl = ShortUrl::findorFall($id);
+        $shortUrl ->update($request->only('original_url'));
+
+        return new ShortUrlResource($shortUrl);
+    }
+    public function destroy($id)
+    {
+        $shortUrl = ShortUrl::findorFall($id);
+        $shortUrl ->delete();
+
+        return response()->noContent();
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }
