@@ -18,3 +18,14 @@ php artisan make:model ShortUrl -mfsr
 ```bash
 php artisan make:request UpdateShortUrlRequest
 ```
+
+向 ChatGPT 發問：  
+在 Laravel 12 ，沒有 Resource 檔案，如何用 php artisan 生成
+
+回答如下：
+在 Laravel 12 中，Resource 依然存在，只是名稱是 **API Resource**，而且 artisan 指令不是 `make:resource` 嗎？
+
+✅ 正確的方式：
+```bash
+php artisan make:resource UserResource
+```
