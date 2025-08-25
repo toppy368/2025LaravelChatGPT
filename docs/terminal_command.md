@@ -30,3 +30,8 @@ php artisan make:request UpdateShortUrlRequest
 php artisan make:resource UserResource
 ```
 註解：因專案需要，以下把 UserResource 更改為 `ShortUrlResource`
+
+修改後的方式：
+```bash
+php artisan make:resource ShortUrlResource
+```
