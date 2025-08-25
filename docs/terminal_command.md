@@ -13,3 +13,8 @@ php artisan make:test ShortUrlApiTest
 ```bash
 php artisan make:model ShortUrl -mfsr
 ```
+
+在 app/Http/Requests/ 新增 UpdateShortUrlRequest.php
+```bash
+php artisan make:request UpdateShortUrlRequest
+```
